@@ -42,7 +42,8 @@ export const NftCard: FC<Props> = ({
   function addToWatchList() {
     let message = new TextEncoder().encode(collectionSymbol)
     console.log('symbol, message', collectionSymbol, message)
-    signMessage(message)
+    if (!signMessage) throw new Error('Wallet does not support message signing!');
+    if(message) signMessage(message);
   }
 
   useEffect(() => {
