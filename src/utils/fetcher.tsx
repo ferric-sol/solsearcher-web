@@ -1,6 +1,7 @@
 export const fetcher = async (url: string): Promise<any> => {
   const requestHeaders: HeadersInit = new Headers();
-  requestHeaders.set('mode', 'no-cors');
+  requestHeaders.set('Access-Control-Allow-Origin', '*')
+
 
   const res = await fetch(url);
 
