@@ -3,7 +3,7 @@ export const fetcher = async (url: string): Promise<any> => {
   requestHeaders.set('Access-Control-Allow-Origin', '*')
 
 
-  const res = await fetch(url);
+  const res = await fetch(url, { headers: requestHeaders } );
 
   // If the status code is not in the range 200-299,
   // we still try to parse and throw it.
