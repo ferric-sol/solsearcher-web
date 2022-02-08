@@ -11,7 +11,8 @@ export default async function handler(
   result: NextApiResponse<Data>
 ) {
 
-	const res = await fetch("https://api-mainnet.magiceden.io/all_collections", {
+	const url = "https://api-mainnet.magiceden.io/all_collections"
+	const res = await fetch(url, {
 		"headers": {
 			"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 			"accept-language": "en-US,en;q=0.9",
