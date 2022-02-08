@@ -2,7 +2,6 @@ import Link from "next/link";
 import { FC, useState } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { useWalletNfts, NftTokenAccount } from "@nfteyez/sol-rayz-react";
 import useSWR from "swr";
 import { fetcher } from "utils/fetcher";
 import { NftCard } from "./NftCard";
@@ -20,13 +19,6 @@ export const HomeView: FC = ({}) => {
   const [searchResults, setSearchResults] = useState<any[]>();
   const [searchTerm, setSearchTerm] = useState<any>();
   const { publicKey, signMessage } = useWallet();
-
-  const { nfts, isLoading, error } = useWalletNfts({
-    publicAddress: walletToParsePublicKey,
-    // connection,
-  });
-
-  console.log("nfts", nfts);
 
   const url = "/api/fetch_all"
   const { data } = useSWR(
