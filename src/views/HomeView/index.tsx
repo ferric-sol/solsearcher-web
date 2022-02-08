@@ -117,20 +117,6 @@ export const HomeView: FC = ({}) => {
                     </div>
                   </div>
                 </div>
-                <div className="my-10">
-                  {error ? (
-                    <div>
-                      <h1>Error Occurred</h1>
-                      {(error as any)?.message}
-                    </div>
-                  ) : null}
-
-                  {!error && isLoading && (
-                    <div>
-                      <Loader />
-                    </div>
-                  )}
-                </div>
                 <p>Search Results</p>
                 <hr></hr>
                 <div className="overflow-x-auto">
