@@ -1,5 +1,5 @@
 export const fetcher = async (url: string): Promise<any> => {
-  const res = await fetch(url, { credentials: 'include' });
+  const res = await fetch(url);
 
   // If the status code is not in the range 200-299,
   // we still try to parse and throw it.

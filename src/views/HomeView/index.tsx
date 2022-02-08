@@ -28,7 +28,7 @@ export const HomeView: FC = ({}) => {
 
   console.log("nfts", nfts);
 
-  const url = "https://api-mainnet.magiceden.io/all_collections"
+  const url = "/api/fetch_all"
   const { data } = useSWR(
     url,
     fetcher,
