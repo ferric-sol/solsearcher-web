@@ -20,7 +20,7 @@ export const HomeView: FC = ({}) => {
   const [searchTerm, setSearchTerm] = useState<any>();
   const { publicKey, signMessage } = useWallet();
 
-  const url = "http://api.solsearcher.space/all_collections"
+  const url = "https://api.solsearcher.space/all_collections"
   const { data } = useSWR(
     url,
     fetcher,
