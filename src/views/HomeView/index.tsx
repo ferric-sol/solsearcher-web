@@ -20,7 +20,7 @@ export const HomeView: FC = ({}) => {
   const [searchTerm, setSearchTerm] = useState<any>();
   const { publicKey, signMessage } = useWallet();
 
-  const url = "/api/fetch_all"
+  const url = "http://api.solsearcher.space/all_collections"
   const { data } = useSWR(
     url,
     fetcher,
@@ -30,8 +30,6 @@ export const HomeView: FC = ({}) => {
       revalidateOnReconnect: false,
     }
   );
-
-  console.log(data);
 
   function filterByName(arr: any[], query: string) {
     return arr.filter(function(el) {
