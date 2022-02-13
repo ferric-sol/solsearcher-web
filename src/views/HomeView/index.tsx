@@ -31,6 +31,8 @@ export const HomeView: FC = ({}) => {
     }
   );
 
+  console.log('>>>>', data);
+
   function filterByName(arr: any[], query: string) {
     return arr.filter(function(el) {
     return el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
