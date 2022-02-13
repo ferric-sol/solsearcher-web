@@ -51,11 +51,11 @@ export const NftCard: FC<Props> = ({
       onTokenDetailsFetched(data);
       setCollectionName(details?.name)
       const exponent = 9
-      setFloorPrice(data?.results.floorPrice/Math.pow(10, exponent))
-      setAvgPrice(data?.results.floorPrice/Math.pow(10, exponent))
+      setFloorPrice(data?.results?.floorPrice/Math.pow(10, exponent))
+      setAvgPrice(data?.results?.floorPrice/Math.pow(10, exponent))
       setCollectionSymbol(details?.symbol)
-      setVolume(Math.round(data?.results.volumeAll/Math.pow(10, exponent)))
-      setListedCount(Math.round(data?.results.listedCount/Math.pow(10, exponent)))
+      setVolume(Math.round(data?.results?.volumeAll/Math.pow(10, exponent)))
+      setListedCount(Math.round(data?.results?.listedCount/Math.pow(10, exponent)))
     }
   }, [data, error]);
 
