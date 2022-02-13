@@ -40,7 +40,7 @@ export const HomeView: FC = ({}) => {
   }
 
   function handleSubmit() {
-    console.log('>>>>>', data.collections, data['collections'])
+    console.log('>>>>>', searchTerm);
     const collection_results = filterByName(data.collections, searchTerm);
     console.log(collection_results);
     setSearchResults(collection_results);
