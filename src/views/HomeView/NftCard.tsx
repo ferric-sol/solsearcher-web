@@ -26,7 +26,7 @@ export const NftCard: FC<Props> = ({
 
   console.log('details: ', details)
 
-  const uri = "https://api-mainnet.magiceden.io/rpc/getCollectionEscrowStats/"+details?.symbol;
+  const uri = "https://stark-lake-75007.herokuapp.com:8080/https://api-mainnet.magiceden.io/rpc/getCollectionEscrowStats/"+details?.symbol;
 
   const { data, error } = useSWR(
     uri,
