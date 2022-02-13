@@ -20,7 +20,7 @@ export const HomeView: FC = ({}) => {
   const [searchTerm, setSearchTerm] = useState<any>();
   const { publicKey, signMessage } = useWallet();
 
-  const url = "https://stark-lake-75007.herokuapp.com/https://api-mainnet.magiceden.io/all_collections"
+  const url = "https://fubarapi.herokuapp.com/https://api-mainnet.magiceden.io/all_collections"
   const { data } = useSWR(
     url,
     fetcher,
