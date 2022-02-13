@@ -26,7 +26,7 @@ export const NftCard: FC<Props> = ({
 
   console.log('details: ', details)
 
-  const uri = "https://fubarapi.herokuapp.com/https://api-mainnet.magiceden.io/rpc/getCollectionEscrowStats/"+details?.symbol;
+  const uri = "https://api.solsearcher.space/cors/https://api-mainnet.magiceden.io/rpc/getCollectionEscrowStats/"+details?.symbol;
 
   const { data, error } = useSWR(
     uri,
