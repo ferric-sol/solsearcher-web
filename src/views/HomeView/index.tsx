@@ -32,7 +32,6 @@ export const HomeView: FC = ({}) => {
   );
 
   console.log('>>>>', data);
-  console.log('>>>>', data.collections);
 
   function filterByName(arr: any[], query: string) {
     return arr.filter(function(el) {
@@ -41,7 +40,7 @@ export const HomeView: FC = ({}) => {
   }
 
   function handleSubmit() {
-    console.log('>>>>>', data.collections)
+    console.log('>>>>>', data.collections, data['collections'])
     const collection_results = filterByName(data.collections, searchTerm);
     console.log(collection_results);
     setSearchResults(collection_results);
