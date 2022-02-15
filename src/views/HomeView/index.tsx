@@ -20,7 +20,7 @@ export const HomeView: FC = ({}) => {
   const [searchTerm, setSearchTerm] = useState<any>();
   const { publicKey, signMessage } = useWallet();
 
-  const url = "https://api.solsearcher.space/cors/https://api-mainnet.magiceden.io/all_collections"
+  const url = "/api/fetch_all";
   const { data } = useSWR(
     url,
     fetcher,
@@ -31,6 +31,8 @@ export const HomeView: FC = ({}) => {
     }
   );
 
+  console.log('data: ', data)
+
   function filterByName(arr: any[], query: string) {
     return arr.filter(function(el) {
       return el.name?.toLowerCase().indexOf(query.toLowerCase()) !== -1
@@ -38,7 +40,6 @@ export const HomeView: FC = ({}) => {
   }
 
   function handleSubmit() {
-    console.log('>>>>>', searchTerm);
     const collection_results = filterByName(data.collections, searchTerm);
     console.log(collection_results);
     setSearchResults(collection_results);

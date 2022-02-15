@@ -26,7 +26,7 @@ export const NftCard: FC<Props> = ({
 
   console.log('details: ', details)
 
-  const uri = "https://api.solsearcher.space/cors/https://api-mainnet.magiceden.io/rpc/getCollectionEscrowStats/"+details?.symbol;
+  const uri = "/api/symbol/"+details?.symbol;
 
   const { data, error } = useSWR(
     uri,
@@ -37,11 +37,10 @@ export const NftCard: FC<Props> = ({
       revalidateOnReconnect: false,
     }
   );
-  console.log("data", data);
 
   function addToWatchList() {
     let message = new TextEncoder().encode(collectionSymbol)
-    console.log('symbol, message', collectionSymbol, message)
+   
     if (!signMessage) throw new Error('Wallet does not support message signing!');
     if(message) signMessage(message);
   }
