@@ -1,6 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import useSWR from "swr";
 import { useWallet } from "@solana/wallet-adapter-react";
+import { sign } from 'tweetnacl';
 
 import { fetcher } from "utils/fetcher";
 
@@ -22,7 +23,7 @@ export const NftCard: FC<Props> = ({
   const [collectionSymbol, setCollectionSymbol] = useState<string>();
   const [volume, setVolume] = useState<number>();
   const [listedCount, setListedCount] = useState<number>();
-  const { signMessage } = useWallet();
+  const { publicKey, signMessage } = useWallet();
 
   console.log('details: ', details)
 
@@ -38,11 +39,14 @@ export const NftCard: FC<Props> = ({
     }
   );
 
-  function addToWatchList() {
+  async function addToWatchList() {
     let message = new TextEncoder().encode(collectionSymbol)
    
     if (!signMessage) throw new Error('Wallet does not support message signing!');
-    if(message) signMessage(message);
+    if (!publicKey) throw new Error('Wallet not connected!');
+    const signature = await signMessage(message);
+    // Verify that the bytes were signed using the private key that matches the known public key
+    if (!sign.detached.verify(message, signature, publicKey.toBytes())) throw new Error('Invalid signature!');
   }
 
   useEffect(() => {
