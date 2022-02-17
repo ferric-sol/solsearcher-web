@@ -127,6 +127,8 @@ export const HomeView: FC = ({}) => {
                         <td>Floor</td>
                         <td>24h Avg</td>
                         <td>Volume</td>
+                        <td>ATL</td>
+                        <td>ATH</td>
                         <td>Watch</td>
                       </tr>
                     </thead>

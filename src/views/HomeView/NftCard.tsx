@@ -69,6 +69,8 @@ export const NftCard: FC<Props> = ({
       <td>{floorPrice}</td>
       <td>{avgPrice}</td>
       <td>{volume}</td>
+      <td></td>
+      <td></td>
       <td>
         <button
           className="btn btn-primary btn-lg"
