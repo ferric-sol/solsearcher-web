@@ -130,6 +130,7 @@ export const HomeView: FC = ({}) => {
                         <td>ATL</td>
                         <td>ATH</td>
                         <td>Watch</td>
+                        <td>Buy</td>
                       </tr>
                     </thead>
                     <tbody>

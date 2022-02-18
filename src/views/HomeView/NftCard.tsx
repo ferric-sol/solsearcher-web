@@ -28,6 +28,7 @@ export const NftCard: FC<Props> = ({
   console.log('details: ', details)
 
   const uri = "/api/symbol/"+details?.symbol;
+  const buyurl = "https://magiceden.io/marketplace/"+details?.symbol
 
   const { data, error } = useSWR(
     uri,
@@ -47,6 +48,7 @@ export const NftCard: FC<Props> = ({
     const signature = await signMessage(message);
     // Verify that the bytes were signed using the private key that matches the known public key
     if (!sign.detached.verify(message, signature, publicKey.toBytes())) throw new Error('Invalid signature!');
+    console.log('pkey', publicKey.toBase58());
   }
 
   useEffect(() => {
@@ -78,6 +80,15 @@ export const NftCard: FC<Props> = ({
         >
           {<div>Watch</div>}
         </button>
+      </td>
+      <td>
+        <a href={buyurl} target="_blank">
+        <button
+          className="btn btn-primary btn-lg"
+        >
+          {<div>Buy</div>}
+        </button>
+        </a>
       </td>
     </tr>
     </>
