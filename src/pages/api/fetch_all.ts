@@ -8,6 +8,12 @@ type Data = {
   name: string
 }
 
+export const config = {
+  api: {
+    responseLimit: false,
+  },
+}
+
 export default async function handler(
   req: NextApiRequest,
   result: NextApiResponse
